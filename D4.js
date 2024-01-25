@@ -48,7 +48,7 @@ console.log(crazyDiff(25));
 */
 
 const boundary = function (n) {
-  if ((n > 20 && n <= 100) || n === 400) {
+  if ((n >= 20 && n <= 100) || n === 400) {
     return true;
   } else {
     return false;
@@ -71,7 +71,7 @@ const epify = function (string) {
   }
 };
 
-console.log(epify("matteo"));
+console.log(epify("Sara"));
 console.log(epify("EPICODE"));
 
 /* ESERCIZIO 6
@@ -80,10 +80,12 @@ console.log(epify("EPICODE"));
 */
 
 const check3and7 = function (num) {
-  if (num % 3 === 0 || num % 7 === 0) {
-    return true;
-  } else {
-    return false;
+  if (num > 0) {
+    if (num % 3 === 0 || num % 7 === 0) {
+      return true;
+    } else {
+      return false;
+    }
   }
 };
 
@@ -108,7 +110,20 @@ console.log(reverseString("EPICODE"));
  La funzione deve rendere maiuscola la prima lettera di ogni parola contenuta nella stringa.
 */
 
-const upperFirst = function (str) {};
+const upperFirst = function (str) {
+  let words = str.split(" ");
+  completeWord = [];
+  for (let i = 0; i < words.length; i++) {
+    const firstLetter = words[i].charAt(0);
+    const firstUpper = firstLetter.toUpperCase();
+    let sliceFirstLetter = words[i].slice(1);
+    const upperWord = firstUpper + sliceFirstLetter;
+    completeWord.push(upperWord);
+  }
+  console.log(completeWord.join(" "));
+};
+
+upperFirst("ciao paolo");
 
 /* ESERCIZIO 9
  Scrivi una funzione di nome "cutString", che riceve come parametro una stringa. La funzione deve creare una nuova stringa senza il primo e l'ultimo carattere
@@ -120,10 +135,18 @@ const cutString = function (str) {
   return newStr;
 };
 
-console.log(cutString("Ciao"));
+console.log(cutString("Federer"));
 
 /* ESERCIZIO 10
  Scrivi una funzione di nome "giveMeRandom", che accetta come parametro un numero n e ritorna un'array contenente n numeri casuali inclusi tra 0 e 10.
 */
 
-/* SCRIVI QUI LA TUA RISPOSTA */
+const giveMeRandom = function (num) {
+  const myArray = [];
+  for (let i = 0; i < num; i++) {
+    myArray.push(Math.floor(Math.random() * 11));
+  }
+  return myArray;
+};
+
+console.log(giveMeRandom(7));
